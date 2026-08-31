@@ -46,10 +46,11 @@ No Unsplash/Pexels HVAC models.
 | File | What it is |
 | --- | --- |
 | `images/van-listing.jpg` | Public listing photo of the Advanced Mechanical van (OnHamilton / goguild directory). Lettering matches the shop name, 905-745-7457, and the service list. |
+| `images/adis-ave-streetview.jpg` | Google Street View still of 148 Adis Ave (pano `vtu_CCbsAaWUoiv7i7HbCQ`, heading ~350°). House number 148 is on the garage. |
 | `images/adis-ave-aerial.jpg` | Aerial of 148 Adis Ave and the immediate block (Esri World Imagery tiles, stitched). |
 | `images/adis-ave-neighbourhood.jpg` | Wider aerial of the same west-mountain streets. |
 
-Google Street View stills could not be downloaded without a Maps API key (Street View Static API returned 403). The page uses a **Google Maps embed** of 148 Adis Ave and a **Street View iframe** at the geocoded point (43.2268869, −79.9281232) instead.
+Street View Static API without a key returned 403. The still above was fetched from Google’s Street View thumbnail endpoint using a panorama id from Maps. The page also embeds Google Maps for 148 Adis Ave and a Street View iframe for that same pano.
 
 The luxury fireplace interior on that same goguild listing was not used — it reads as stock, not this shop.
 
