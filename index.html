@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Unofficial sample page for Advanced Mechanical, Hamilton HVAC at 148 Adis Ave. Call Milad at 905-745-7457. Not the official company site.">
+  <title>Advanced Mechanical — unofficial Hamilton HVAC sample</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Advanced Mechanical",
+    "telephone": "+19057457457",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "148 Adis Ave",
+      "addressLocality": "Hamilton",
+      "addressRegion": "ON",
+      "postalCode": "L9C 6V3",
+      "addressCountry": "CA"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "07:00", "closes": "17:00" }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --color-primary: #faff69;
+      --color-primary-active: #e6eb52;
+      --color-ink: #ffffff;
+      --color-body: #cccccc;
+      --color-body-strong: #e6e6e6;
+      --color-muted: #888888;
+      --color-muted-soft: #5a5a5a;
+      --color-hairline: #2a2a2a;
+      --color-hairline-strong: #3a3a3a;
+      --color-canvas: #0a0a0a;
+      --color-surface-soft: #121212;
+      --color-surface-card: #1a1a1a;
+      --color-surface-elevated: #242424;
+      --color-on-primary: #0a0a0a;
+      --color-on-dark: #ffffff;
+      --color-error: #ef4444;
+      --font-primary: Inter, system-ui, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --max: 1200px;
+      --sticky-h: 5.5rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      color-scheme: dark;
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      background: var(--color-canvas);
+      color: var(--color-ink);
+      font-family: var(--font-primary);
+      font-size: 16px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary); text-underline-offset: 0.18em; }
+    a:hover { color: var(--color-ink); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+    .skip {
+      position: absolute; left: 0.75rem; top: -3rem; z-index: 40;
+      background: var(--color-primary); color: var(--color-on-primary);
+      padding: 0.5rem 0.85rem; font-weight: 600; text-decoration: none; border-radius: var(--radius-md);
+    }
+    .skip:focus { top: 0.75rem; }
+    .page {
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      padding-bottom: calc(var(--sticky-h) + env(safe-area-inset-bottom, 0px));
+    }
+    .wrap {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 max(1rem, env(safe-area-inset-right, 0px)) 0 max(1rem, env(safe-area-inset-left, 0px));
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-hairline);
+    }
+    .site-header .wrap {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      min-height: 64px;
+    }
+    .wordmark {
+      display: flex; flex-direction: column; gap: 2px; text-decoration: none; color: var(--color-ink);
+      min-height: 44px; justify-content: center;
+    }
+    .wordmark strong {
+      font-size: 0.95rem; font-weight: 700; letter-spacing: -0.3px; line-height: 1.2;
+    }
+    .wordmark span {
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-muted); font-weight: 500;
+    }
+    .nav { display: none; align-items: center; gap: 1.35rem; }
+    .nav a {
+      color: var(--color-body); text-decoration: none; font-size: 14px; font-weight: 500;
+    }
+    .nav a:hover { color: var(--color-primary); }
+    .btn-header { display: none; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 56px; padding: 12px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none; font-family: var(--font-primary);
+      font-size: 14px; font-weight: 600; line-height: 1;
+      border: 1px solid transparent; touch-action: manipulation;
+    }
+    .btn-call {
+      background: var(--color-primary); color: var(--color-on-primary);
+    }
+    .btn-call:hover { background: var(--color-primary-active); color: var(--color-on-primary); }
+    .btn-ghost {
+      background: var(--color-surface-card); color: var(--color-on-dark);
+      border-color: var(--color-hairline-strong);
+    }
+    .btn-ghost:hover { background: var(--color-surface-elevated); color: var(--color-ink); }
+    .btn-on-yellow {
+      background: var(--color-on-primary); color: var(--color-primary);
+    }
+    .btn-on-yellow:hover { background: #1a1a1a; color: var(--color-primary); }
+    .kicker, .section-label {
+      margin: 0;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-primary); line-height: 1.4;
+    }
+    .hero { padding: 2.5rem 0 1.5rem; }
+    .hero h1 {
+      margin: 0.5rem 0 0;
+      font-size: clamp(2.35rem, 11vw, 4.5rem);
+      line-height: 1.05; letter-spacing: -2px; font-weight: 700;
+    }
+    .lede {
+      margin: 1rem 0 0; max-width: 38rem;
+      font-size: 16px; line-height: 1.55; color: var(--color-body);
+    }
+    .today-chip {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      margin: 1rem 0 0; padding: 0.4rem 0.75rem;
+      border: 1px solid var(--color-hairline-strong);
+      border-radius: 9999px;
+      color: var(--color-body-strong);
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em;
+    }
+    .today-chip::before {
+      content: ""; width: 0.45rem; height: 0.45rem; border-radius: 50%;
+      background: var(--color-primary);
+    }
+    .hero-aside { display: none; }
+    .cta-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 1.35rem 0 0;
+    }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem; margin: 1.6rem 0 0;
+    }
+    .stat {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+      padding: 16px 12px;
+    }
+    .stat b {
+      display: block; font-size: clamp(1.5rem, 5vw, 2.5rem);
+      line-height: 1; letter-spacing: -1.5px; color: var(--color-primary); font-weight: 700;
+    }
+    .stat span { display: block; margin-top: 0.4rem; color: var(--color-muted); font-size: 13px; line-height: 1.4; }
+    section { padding: 3rem 0 0.25rem; }
+    .section-head { margin-bottom: 1.25rem; max-width: 42rem; }
+    h2 {
+      margin: 0.4rem 0 0.5rem;
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      line-height: 1.15; letter-spacing: -1px; font-weight: 700;
+    }
+    .section-intro { margin: 0; color: var(--color-muted); }
+    .photos { display: grid; gap: 0.75rem; }
+    figure {
+      margin: 0; background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); overflow: hidden;
+    }
+    figure img { width: 100%; height: 14rem; object-fit: cover; background: var(--color-surface-elevated); }
+    figcaption {
+      padding: 12px 16px 14px; color: var(--color-muted); font-size: 13px; line-height: 1.4;
+    }
+    .phone-lg {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: clamp(1.65rem, 7vw, 2.4rem);
+      font-weight: 500; letter-spacing: -1px; line-height: 1.1;
+      color: var(--color-ink); text-decoration: none;
+    }
+    .phone-lg:hover { color: var(--color-primary); }
+    .addr { font-style: normal; color: var(--color-body); margin: 0.5rem 0 0; }
+    .overview-grid { display: flex; flex-direction: column; gap: 1.75rem; }
+    .service-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;
+    }
+    .service {
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+    }
+    .service h3 {
+      margin: 0 0 0.35rem; font-size: 16px; font-weight: 600; letter-spacing: -0.3px; line-height: 1.4;
+    }
+    .service p { margin: 0; color: var(--color-muted); font-size: 14px; line-height: 1.55; }
+    .service.emergency {
+      grid-column: 1 / -1;
+      background: var(--color-surface-soft);
+    }
+    .quotes { display: grid; gap: 0.75rem; margin: 0; }
+    blockquote {
+      margin: 0; padding: 24px 20px 20px;
+      background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline);
+      border-radius: var(--radius-lg);
+    }
+    blockquote p {
+      margin: 0; font-size: 16px; line-height: 1.5; color: var(--color-body-strong);
+    }
+    blockquote footer {
+      margin-top: 0.85rem;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--color-primary);
+    }
+    .story p { margin: 0 0 1rem; color: var(--color-body); max-width: 40rem; }
+    .story p:last-child { margin-bottom: 0; }
+    .hours-list {
+      list-style: none; margin: 0; padding: 0;
+      border-top: 1px solid var(--color-hairline);
+    }
+    .hours-list li {
+      display: flex; justify-content: space-between; gap: 1rem;
+      padding: 0.85rem 0.1rem; border-bottom: 1px solid var(--color-hairline);
+      font-family: var(--font-mono); font-size: 14px;
+    }
+    .hours-list .is-today {
+      background: rgba(250, 255, 105, 0.08);
+      box-shadow: inset 3px 0 0 var(--color-primary);
+      padding-left: 0.75rem;
+    }
+    .today-tag {
+      margin-left: 0.45rem; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--color-on-primary); background: var(--color-primary);
+      padding: 0.12rem 0.4rem; border-radius: 4px; font-family: var(--font-primary); font-weight: 600;
+    }
+    .hours-layout { display: flex; flex-direction: column; gap: 1.4rem; }
+    .map-wrap, .sv-wrap {
+      margin: 0.7rem 0 0.85rem; background: var(--color-surface-card);
+      border: 1px solid var(--color-hairline); border-radius: var(--radius-lg); overflow: hidden;
+      min-height: 14rem;
+    }
+    .map-wrap iframe, .sv-wrap iframe {
+      display: block; width: 100%; height: 16.5rem; border: 0;
+    }
+    .visit-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin: 0.35rem 0 0; }
+    .note { color: var(--color-muted); font-size: 14px; margin: 0.9rem 0 0; }
+    .cta-band {
+      margin-top: 3rem;
+      background: var(--color-primary); color: var(--color-on-primary);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.25rem;
+    }
+    .cta-band h2 { color: var(--color-on-primary); letter-spacing: -1px; }
+    .cta-band p { margin: 0.5rem 0 1.15rem; color: #1a1a1a; max-width: 36rem; }
+    .cta-band .phone-lg { color: var(--color-on-primary); }
+    .cta-band .phone-lg:hover { color: #242424; }
+    .site-footer {
+      margin-top: 2.5rem; padding: 1.35rem 0 1.6rem;
+      border-top: 1px solid var(--color-hairline);
+      color: var(--color-muted); font-size: 13px; line-height: 1.55;
+    }
+    .site-footer p { margin: 0 0 0.5rem; }
+    .site-footer p:last-child { margin-bottom: 0; }
+    .sticky {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      background: rgba(10, 10, 10, 0.94); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--color-hairline);
+      padding: 0.7rem 0.85rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    }
+    .sticky-inner {
+      width: 100%; max-width: 28rem; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem;
+    }
+    @media (min-width: 900px) {
+      .page { padding-bottom: 0; }
+      .sticky { display: none; }
+      .wrap { padding-left: 2rem; padding-right: 2rem; }
+      .nav { display: flex; }
+      .btn-header { display: inline-flex; min-height: 40px; padding: 10px 16px; }
+      .hero { padding: 4.5rem 0 2rem; }
+      .hero-grid {
+        display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.7fr);
+        gap: 3.5rem; align-items: end;
+      }
+      .lede { font-size: 18px; line-height: 1.69; }
+      .cta-row { display: flex; max-width: 28rem; }
+      .cta-row .btn { min-width: 11rem; }
+      section { padding: 6rem 0 0.4rem; }
+      .photos { grid-template-columns: 1.15fr 0.85fr; }
+      figure img { height: 20rem; }
+      .overview-grid {
+        display: grid; grid-template-columns: 1.05fr 0.95fr;
+        gap: 2.5rem 3.5rem; align-items: start;
+      }
+      .service-grid { grid-template-columns: repeat(4, 1fr); }
+      .service.emergency { grid-column: span 2; }
+      .quotes { grid-template-columns: 1fr 1fr 1fr; }
+      .about-grid, .hours-layout {
+        display: grid; grid-template-columns: 1.15fr 0.85fr;
+        gap: 3rem; align-items: start;
+      }
+      .map-wrap iframe, .sv-wrap iframe { height: 22rem; }
+      .cta-band { padding: 4rem 3rem; }
+      .hero-aside {
+        display: block;
+        border-left: 1px solid var(--color-hairline);
+        padding-left: 2rem;
+      }
+      .hero-hours { list-style: none; margin: 0.85rem 0 0; padding: 0; color: var(--color-body); font-size: 14px; }
+      .hero-hours li {
+        display: flex; justify-content: space-between; gap: 1rem;
+        padding: 0.4rem 0; border-bottom: 1px solid var(--color-hairline);
+        font-family: var(--font-mono);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#overview">Skip to overview</a>
+  <div class="page">
+    <header class="site-header">
+      <div class="wrap">
+        <a class="wordmark" href="#top">
+          <strong>Advanced Mechanical</strong>
+          <span>Unofficial sample</span>
+        </a>
+        <nav class="nav" aria-label="Page">
+          <a href="#services">Services</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#hours">Hours &amp; map</a>
+        </nav>
+        <a class="btn btn-call btn-header" href="tel:9057457457">Call Milad</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <p class="kicker">148 Adis Ave · Hamilton</p>
+            <h1>Furnace out. Heat wave. Call Milad.</h1>
+            <p class="lede">Advanced Mechanical is a Hamilton HVAC shop listed at 148 Adis Ave on the west mountain. Owner-tech is Milad Sideq. Reviews also name Zamir. This page is an unofficial sample — not the company site. No form. Call.</p>
+            <p class="today-chip" id="today-chip">Hours from public listings</p>
+            <div class="cta-row">
+              <a class="btn btn-call" href="tel:9057457457">Call 905-745-7457</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=148+Adis+Ave,+Hamilton,+ON+L9C+6V3">Directions</a>
+            </div>
+            <div class="stats">
+              <div class="stat"><b>4.9</b><span>Google, via Birdeye · 42 reviews</span></div>
+              <div class="stat"><b>2012</b><span>Year listed established</span></div>
+              <div class="stat"><b>7–7</b><span>Weekdays, from listings</span></div>
+            </div>
+          </div>
+          <aside class="hero-aside" aria-label="Call and hours snapshot">
+            <p class="kicker">Call Milad</p>
+            <a class="phone-lg" href="tel:9057457457">905-745-7457</a>
+            <ul class="hero-hours">
+              <li><span>Mon–Fri</span><span>7am–7pm</span></li>
+              <li><span>Sat–Sun</span><span>7am–5pm</span></li>
+              <li><span>Address</span><span>148 Adis Ave</span></li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="photos">
+          <figure>
+            <img src="images/van-listing.jpg" width="489" height="276" alt="White Advanced Mechanical van with Hamilton phone number 905-745-7457 and a list of heating and cooling services">
+            <figcaption>Listing photo of the shop van (OnHamilton / goguild). Same number as this page. TSSA #000259698 is printed on the fender — as lettered, not as a claim this sample verified.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/adis-ave-aerial.jpg" width="900" height="900" alt="Aerial photograph of 148 Adis Avenue and neighbouring houses on Hamilton’s west mountain">
+            <figcaption>148 Adis Ave, Hamilton — aerial of the listed address (Esri World Imagery). A house listing, not a mall storefront. Call before you go.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <section id="overview">
+        <div class="wrap overview-grid">
+          <div>
+            <p class="section-label">Overview</p>
+            <h2>Call. Don’t fill in a box.</h2>
+            <p class="section-intro">No public email turned up. This page does not ship a form that emails nowhere, and it does not take bookings or payments.</p>
+            <p style="margin:1.25rem 0 0;"><a class="phone-lg" href="tel:9057457457">905-745-7457</a></p>
+            <p class="addr">
+              <strong>Advanced Mechanical</strong><br>
+              148 Adis Ave<br>
+              Hamilton, ON L9C 6V3
+            </p>
+            <p class="note"><a href="#hours">Hours, map, and Street View</a></p>
+          </div>
+          <div>
+            <p class="section-label">On the van, and in listings</p>
+            <p class="section-intro" style="margin-bottom:1rem;">Copy stays with what directories and the van actually say. Heat pump and humidifiers come from the public service list used for this pitch — not extra trades invented here.</p>
+            <ul class="hours-list" style="font-family:var(--font-primary);">
+              <li><span>Furnace</span><span>Heat</span></li>
+              <li><span>Air conditioning</span><span>Cool</span></li>
+              <li><span>Heat pump</span><span>Both</span></li>
+              <li><span>Tankless / hot water</span><span>Water</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="section-label">Services</p>
+            <h2>Hamilton heat and cool.</h2>
+            <p class="section-intro">From public listings and the van lettering. This page does not add prices, warranties, or extra tickets.</p>
+          </div>
+          <div class="service-grid">
+            <article class="service"><h3>Furnace</h3><p>Heating work as listed — install, repair, maintenance in the directories.</p></article>
+            <article class="service"><h3>Air conditioning</h3><p>AC jobs show up in the Google reviews and on the van: A/C.</p></article>
+            <article class="service"><h3>Heat pump</h3><p>Named on the public service list for this sample. Reviews mention heat pump installs.</p></article>
+            <article class="service"><h3>Tankless / hot water</h3><p>Tankless is on the van. Directories also list hot water / tank work.</p></article>
+            <article class="service"><h3>Ductwork</h3><p>On the van. One published review describes HVAC run through a layered ceiling.</p></article>
+            <article class="service"><h3>Gas piping</h3><p>On the van and in heating/gas directory categories. Licensing details: ask when you call.</p></article>
+            <article class="service"><h3>Humidifiers</h3><p>On the public service list used for this pitch. Call if that is the job.</p></article>
+            <article class="service"><h3>Fireplaces</h3><p>Lettering on the listing van. Not a showroom claim — ask Milad.</p></article>
+            <article class="service emergency">
+              <h3>24-hour emergency — as listed</h3>
+              <p>TrustedPros marks 24-hour emergency service. This sample does not invent a dispatch promise or extra licences. If the furnace is down tonight, call 905-745-7457 and ask.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="section-label">Reviews</p>
+            <h2>What people wrote.</h2>
+            <p class="section-intro">About 4.9 from 42 Google reviews, shown on Birdeye. Short quotes, first name only, as published. Not a live scrape.</p>
+          </div>
+          <div class="quotes">
+            <blockquote>
+              <p>“Excellent work. Milad did a very high quality job installing a new hood range, and running hvac through a complicated and layered ceiling… he always chose quality — even staying late to get the job done right.”</p>
+              <footer>Maxwell · Google</footer>
+            </blockquote>
+            <blockquote>
+              <p>“A few days before we had our baby Zamir was able to give us a quote, source our parts and install our new AC and Furnace. They were extremely clean, professional and made sure to explain everything to us.”</p>
+              <footer>Meaghan · Google</footer>
+            </blockquote>
+            <blockquote>
+              <p>“Zamir and his team are great, got me up and running during the heat wave. My family and I thank you!”</p>
+              <footer>S. · Google</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="wrap about-grid">
+          <div class="story">
+            <p class="section-label">About</p>
+            <h2>Milad, on Adis.</h2>
+            <p>Public listings name <strong>Milad Sideq</strong> as the contact and HVAC tech. Reviews also name <strong>Zamir</strong> on heat-wave and new-parent installs. This sample does not invent the rest of the roster.</p>
+            <p>The shop has been listed as established in <strong>2012</strong>. The address is a house on Adis Avenue, west-mountain Hamilton — not a King Street storefront. Call first.</p>
+            <p>The domain advancedmechanical.ca was parked at the registrar when this page was built. Facebook/email did not turn up as a public contact. Call <a href="tel:9057457457">905-745-7457</a>.</p>
+          </div>
+          <blockquote>
+            <p>“Zamir and his team are great, got me up and running during the heat wave.”</p>
+            <footer>S. · Google</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="hours">
+        <div class="wrap hours-layout">
+          <div>
+            <p class="section-label">Hours</p>
+            <h2>When listings say they’re open.</h2>
+            <p class="section-intro">Hours below are from public listings (Birdeye, matching other directories). Confirm when you call.</p>
+            <ul class="hours-list" style="margin-top:1.25rem;">
+              <li data-day="mon"><span class="day">Monday</span><span>7:00 AM–7:00 PM</span></li>
+              <li data-day="tue"><span class="day">Tuesday</span><span>7:00 AM–7:00 PM</span></li>
+              <li data-day="wed"><span class="day">Wednesday</span><span>7:00 AM–7:00 PM</span></li>
+              <li data-day="thu"><span class="day">Thursday</span><span>7:00 AM–7:00 PM</span></li>
+              <li data-day="fri"><span class="day">Friday</span><span>7:00 AM–7:00 PM</span></li>
+              <li data-day="sat"><span class="day">Saturday</span><span>7:00 AM–5:00 PM</span></li>
+              <li data-day="sun"><span class="day">Sunday</span><span>7:00 AM–5:00 PM</span></li>
+            </ul>
+            <p class="note">Directories list 24-hour emergency. That is their claim, not a licence this page checked. Call Milad at 905-745-7457.</p>
+          </div>
+          <div>
+            <p class="section-label">Map</p>
+            <h2>148 Adis Ave</h2>
+            <p class="section-intro">West mountain, Hamilton. Open in Maps if the embed is picky on your phone.</p>
+            <div class="map-wrap">
+              <iframe
+                title="Google Map of 148 Adis Ave, Hamilton"
+                src="https://www.google.com/maps?q=148+Adis+Ave,+Hamilton,+ON+L9C+6V3&amp;output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
+            </div>
+            <div class="sv-wrap">
+              <iframe
+                title="Google Street View near 148 Adis Ave, Hamilton"
+                src="https://www.google.com/maps/embed?pb=!4v1710000000000!6m8!1m7!1s!2m2!1d43.2268869!2d-79.9281232!3f270!4f0!5f0.7"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
+            </div>
+            <div class="visit-actions">
+              <a class="btn btn-call" href="tel:9057457457">Call Milad</a>
+              <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=148+Adis+Ave,+Hamilton,+ON+L9C+6V3">Get directions</a>
+            </div>
+            <p class="note"><a href="https://www.google.com/maps/@43.2268869,-79.9281232,3a,75y,270h,90t/data=!3m1!1e1">Open Street View</a> if the iframe is blank. Stills could not be saved without a Maps API key.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap">
+        <div class="cta-band">
+          <p class="kicker" style="color:#0a0a0a;">Hamilton · Call</p>
+          <h2>Call Milad at 905-745-7457</h2>
+          <p>Furnace, AC, heat pump, tankless, ductwork, gas piping. Unofficial sample page — pick up the phone, don’t submit a form.</p>
+          <p><a class="phone-lg" href="tel:9057457457">905-745-7457</a></p>
+          <div class="cta-row" style="max-width:28rem;">
+            <a class="btn btn-on-yellow" href="tel:9057457457">Call now</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=148+Adis+Ave,+Hamilton,+ON+L9C+6V3" style="border-color:#0a0a0a;color:#0a0a0a;background:transparent;">Directions</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>Unofficial sample for Advanced Mechanical · Hamilton. Not affiliated. Prepared so the shop can see what a simple site could look like.</p>
+        <p>No bookings, no payments, no email form. Call 905-745-7457.</p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="sticky" aria-label="Call or directions">
+    <div class="sticky-inner">
+      <a class="btn btn-call" href="tel:9057457457">Call Milad</a>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=148+Adis+Ave,+Hamilton,+ON+L9C+6V3">Directions</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var weekday = new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", weekday: "short" }).format(new Date()).slice(0, 3).toLowerCase();
+      var until = { mon: "7:00 PM", tue: "7:00 PM", wed: "7:00 PM", thu: "7:00 PM", fri: "7:00 PM", sat: "5:00 PM", sun: "5:00 PM" };
+      var row = document.querySelector('[data-day="' + weekday + '"]');
+      if (row) {
+        row.classList.add("is-today");
+        var tag = document.createElement("span");
+        tag.className = "today-tag";
+        tag.textContent = "Today";
+        row.querySelector(".day").appendChild(tag);
+      }
+      var chip = document.getElementById("today-chip");
+      if (!chip) return;
+      var month = Number(new Intl.DateTimeFormat("en-CA", { timeZone: "America/Toronto", month: "numeric" }).format(new Date()));
+      var season = (month >= 11 || month <= 3) ? "Furnace season on the mountain · " : (month >= 6 && month <= 8) ? "Heat-wave AC season · " : "";
+      chip.textContent = season + "Listed open today until " + until[weekday];
+    })();
+  </script>
+</body>
+</html>
